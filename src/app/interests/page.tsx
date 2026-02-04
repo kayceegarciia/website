@@ -1,4 +1,3 @@
-import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 
 export default function Interests() {
@@ -36,11 +35,9 @@ export default function Interests() {
   ];
 
   return (
-    <>
-      <Navigation />
-      <main className="min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-800">
+    <main className="min-h-screen bg-black">
         <div className="max-w-4xl mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold text-green-100 mb-4">My Interests</h1>
+          <h1 className="text-4xl font-bold mb-4" style={{color: '#0EA551'}}>My Interests</h1>
           <p className="text-lg text-green-200 mb-12">
             Here are some of the things I'm passionate about and enjoy exploring.
           </p>
@@ -73,7 +70,6 @@ export default function Interests() {
             </Link>
           </div>
         </div>
-      </main>
-    </>
+    </main>
   );
 }

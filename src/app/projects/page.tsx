@@ -1,4 +1,3 @@
-import Navigation from '@/components/Navigation';
 import Link from 'next/link';
 
 export default function Projects() {
@@ -27,21 +26,19 @@ export default function Projects() {
   };
 
   return (
-    <>
-      <Navigation />
-      <main className="min-h-screen bg-gradient-to-b from-green-950 via-green-900 to-green-800">
+    <main className="min-h-screen bg-black">
         <div className="max-w-4xl mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold text-green-100 mb-12">Projects & Skills</h1>
+          <h1 className="text-4xl font-bold mb-12" style={{color: '#0EA551'}}>Projects & Skills</h1>
 
           {/* Projects Section */}
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-green-100 mb-8">My Projects</h2>
+            <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>My Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map((project, index) => (
-                <div key={index} className="relative h-64 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-green-700 to-green-900 p-6">
+                <div key={index} className="relative h-64 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-black/60 to-black border-2 p-6" style={{borderColor: '#07450C'}}>
                   <div className="relative text-center">
-                    <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                    <p className="text-green-100 text-sm mb-4">{project.description}</p>
+                    <h3 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>{project.title}</h3>
+                    <p className="text-sm mb-4" style={{color: '#4ADE80'}}>{project.description}</p>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {project.technologies.map((tech, i) => (
                         <span key={i} className="bg-white/30 text-white text-xs px-2 py-1 rounded-full">
@@ -57,7 +54,7 @@ export default function Projects() {
 
           {/* Skills Section */}
           <section className="mb-16">
-            <h2 className="text-3xl font-bold text-green-100 mb-8">Technical Skills</h2>
+            <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>Technical Skills</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {Object.entries(skills).map(([category, skillList]) => (
                 <div key={category} className="relative h-72 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-teal-800 to-green-900 p-6">
@@ -102,7 +99,6 @@ export default function Projects() {
             </Link>
           </div>
         </div>
-      </main>
-    </>
+    </main>
   );
 }
