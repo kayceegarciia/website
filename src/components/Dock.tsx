@@ -66,6 +66,7 @@ function DockLabel({ children, className = '', ...rest }: DockLabelProps & { [ke
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    if (!isHovered) return;
     const unsubscribe = isHovered.on('change', (latest: number) => {
       setIsVisible(latest === 1);
     });
