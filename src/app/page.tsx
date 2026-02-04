@@ -11,7 +11,7 @@ export default function Home() {
     <main className="w-full bg-black">
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', minHeight: '100vh', width: '100%' }}>
         {/* Left Column: About Me */}
-        <div style={{ padding: '5rem 1rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ padding: '2rem 1rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: '4rem' }}>
           <section>
             <h1 className="text-5xl font-bold mb-4" style={{ color: '#0EA551' }}>
               Kaycee Garcia
