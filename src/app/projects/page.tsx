@@ -73,26 +73,6 @@ export default function Projects() {
             </div>
           </section>
 
-          {/* Resume Section */}
-          <section className="mb-12">
-            <div className="bg-gradient-to-br from-green-700 to-green-900 rounded-2xl shadow-lg p-8 border-2 border-green-600">
-              <h2 className="text-2xl font-bold text-white mb-4">My Resume</h2>
-              <p className="text-green-100 mb-6">
-                Download my resume to see a detailed overview of my experience and qualifications.
-              </p>
-              <a
-                href="/resume/resume.pdf"
-                download
-                className="inline-block bg-green-100 text-green-900 font-bold py-3 px-6 rounded-lg hover:bg-white transition"
-              >
-                📥 Download Resume (PDF)
-              </a>
-              <p className="text-green-200 text-sm mt-4">
-                Note: Add your resume.pdf file to public/resume/ folder
-              </p>
-            </div>
-          </section>
-
           <div className="mt-12">
             <Link href="/" className="text-green-400 hover:text-green-300 font-semibold">
               ← Back to Home

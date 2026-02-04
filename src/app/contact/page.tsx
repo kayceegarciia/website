@@ -62,6 +62,24 @@ export default function Contact() {
             </div>
           </div>
 
+          {/* Resume Section */}
+          <section className="mb-12 mt-12">
+            <div className="rounded-2xl shadow-lg p-8 border-2 bg-gradient-to-br from-black/60 to-black" style={{borderColor: '#07450C'}}>
+              <h2 className="text-2xl font-bold mb-4" style={{color: '#0EA551'}}>My Resume</h2>
+              <p className="mb-6" style={{color: '#4ADE80'}}>
+                Download my resume to see a detailed overview of my experience and qualifications.
+              </p>
+              <a
+                href="/resume/resume.pdf"
+                download
+                className="inline-block font-bold py-3 px-6 rounded-lg transition"
+                style={{backgroundColor: '#0EA551', color: '#000', border: '2px solid #07450C'}}
+              >
+                📥 Download Resume (PDF)
+              </a>
+            </div>
+          </section>
+
           <div className="mt-12">
             <Link href="/" className="font-semibold" style={{color: '#0EA551'}}>
               ← Back to Home
