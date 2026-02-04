@@ -28,7 +28,7 @@ export default function Home() {
               </h2>
               <p className="leading-relaxed mb-4" style={{ color: '#4ADE80' }}>
                 I'm a Computer Science student at Arizona State University's Barrett, the Honors College, graduating May 2026.
-                Currently an AI/ML Engineer Intern at USAA, I'm passionate about machine learning, data analysis, and building
+                Previously an AI/ML Engineer Intern at USAA, I'm passionate about machine learning, data analysis, and building
                 scalable software solutions. I have experience with NLP, distributed systems, and full-stack development.
               </p>
               <p className="leading-relaxed" style={{ color: '#4ADE80' }}>
