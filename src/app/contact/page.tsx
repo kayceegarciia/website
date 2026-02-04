@@ -70,7 +70,7 @@ export default function Contact() {
                 Download my resume to see a detailed overview of my experience and qualifications.
               </p>
               <a
-                href="/resume/resume.pdf"
+                href="/resume/Kaycee_Garcia_Resume.pdf"
                 download
                 className="inline-block font-bold py-3 px-6 rounded-lg transition"
                 style={{backgroundColor: '#0EA551', color: '#000', border: '2px solid #07450C'}}
