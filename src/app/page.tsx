@@ -1,5 +1,6 @@
 'use client';
 import dynamic from 'next/dynamic';
+import TextType from '@/components/TextType';
 
 const Lanyard = dynamic(() => import('@/components/Lanyard'), {
   ssr: false,
@@ -13,12 +14,26 @@ export default function Home() {
         {/* Left Column: About Me */}
         <div style={{ padding: '2rem 1rem', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', paddingTop: '4rem' }}>
           <section>
-            <h1 className="text-5xl font-bold mb-4" style={{ color: '#0EA551' }}>
-              Kaycee Garcia
-            </h1>
-            <p className="text-xl mb-8" style={{ color: '#07450C' }}>
-              Computer Science Student & AI/ML Engineer
-            </p>
+            <div className="mb-8">
+              <TextType
+                text={[
+                  'Welcome to my Website! Feel free to play with my lanyard -->',
+                  'Kaycee Garcia\nComputer Science Student & AI/ML Engineer'
+                ]}
+                typingSpeed={85}
+                pauseDuration={2300}
+                deletingSpeed={35}
+                loop={false}
+                showCursor
+                cursorCharacter="_"
+                cursorBlinkDuration={0.5}
+                className="leading-tight"
+                lineClassNames={["text-4xl md:text-5xl font-bold", "text-xl md:text-2xl font-semibold"]}
+                lineColors={["#4ADE80", "#0EA551"]}
+                singleLineClassName="text-xl md:text-2xl font-semibold"
+                singleLineColor="#0EA551"
+              />
+            </div>
             <div
               className="bg-black/50 backdrop-blur shadow-lg p-8 border-2"
               style={{ borderColor: '#07450C' }}
