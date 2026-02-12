@@ -4,7 +4,7 @@
   justify-content: center;
   width: 100%;
   min-height: 160px;
-  background: #000000;
+  background: transparent;
   padding: 16px 12px;
   overflow: hidden;
 }

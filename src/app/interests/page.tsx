@@ -35,7 +35,7 @@ export default function Interests() {
   ];
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-20">
           <h1 className="text-4xl font-bold mb-4" style={{color: '#0EA551'}}>My Interests</h1>
           <p className="text-lg text-green-200 mb-12">

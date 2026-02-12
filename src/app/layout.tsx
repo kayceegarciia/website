@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import DockNavigation from "@/components/DockNavigation";
 import ClickSpark from "@/components/ClickSpark";
+import DarkVeil from "@/components/DarkVeil";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -25,22 +26,34 @@ export default function RootLayout({
         className={`${inter.variable} antialiased flex flex-col min-h-screen m-0 p-0`}
         style={{ fontFamily: "var(--font-inter), sans-serif" }}
       >
-        <ClickSpark
-          sparkColor="#07450C"
-          sparkSize={15}
-          sparkRadius={80}
-          sparkCount={12}
-          duration={500}
-          easing="ease-out"
-          extraScale={1.2}
-        >
-          <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
-            <DockNavigation />
-            <main className="flex-1">
-              {children}
-            </main>
-          </div>
-        </ClickSpark>
+        <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+          <DarkVeil
+            hueShift={0}
+            noiseIntensity={0}
+            scanlineIntensity={0}
+            speed={0.5}
+            scanlineFrequency={0}
+            warpAmount={0}
+          />
+        </div>
+        <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', width: '100%' }}>
+          <ClickSpark
+            sparkColor="#07450C"
+            sparkSize={15}
+            sparkRadius={80}
+            sparkCount={12}
+            duration={500}
+            easing="ease-out"
+            extraScale={1.2}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
+              <DockNavigation />
+              <main className="flex-1">
+                {children}
+              </main>
+            </div>
+          </ClickSpark>
+        </div>
       </body>
     </html>
   );

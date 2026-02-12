@@ -26,7 +26,7 @@ export default function Projects() {
   };
 
   return (
-    <main className="min-h-screen bg-black">
+    <main className="min-h-screen">
         <div className="max-w-4xl mx-auto px-4 py-20">
           <h1 className="text-4xl font-bold mb-12" style={{color: '#0EA551'}}>Projects & Skills</h1>
 
