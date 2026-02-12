@@ -80,11 +80,7 @@ export default function Contact() {
             </div>
           </section>
 
-          <div className="mt-12">
-            <Link href="/" className="font-semibold" style={{color: '#0EA551'}}>
-              ← Back to Home
-            </Link>
-          </div>
+          
         </div>
     </main>
   );

@@ -20,7 +20,7 @@ export default function Projects() {
   ];
 
   const skills = {
-    'Languages': ['Java', 'Python', 'JavaScript', 'C', 'C++', 'SQL', 'HTML', 'CSS'],
+    'Languages': ['Java', 'Python', 'JavaScript','C++', 'SQL', 'HTML', 'CSS'],
     'AI/ML & Data': ['PyTorch', 'SciKit', 'NLP', 'Jupyter Notebooks', 'Apache Airflow', 'Snowflake'],
     'Tools & Technologies': ['Git', 'GitLab', 'Docker', 'Node.js', 'Jira', 'JUnit', 'MATLAB'],
   };
@@ -32,7 +32,7 @@ export default function Projects() {
 
           {/* Projects Section */}
           <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>My Projects</h2>
+            <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map((project, index) => (
                 <div key={index} className="relative h-64 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-black/60 to-black border-2 p-6" style={{borderColor: '#07450C'}}>
@@ -73,11 +73,6 @@ export default function Projects() {
             </div>
           </section>
 
-          <div className="mt-12">
-            <Link href="/" className="text-green-400 hover:text-green-300 font-semibold">
-              ← Back to Home
-            </Link>
-          </div>
         </div>
     </main>
   );

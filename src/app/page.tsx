@@ -17,8 +17,8 @@ export default function Home() {
             <div className="mb-8">
               <TextType
                 text={[
-                  'Welcome to my Website! Feel free to play with my lanyard -->',
-                  'Kaycee Garcia\nComputer Science Student & AI/ML Engineer'
+                  'Welcome to my Website!\n Feel free to play with my lanyard -->',
+                  'Kaycee Garcia\nComputer Science Student & Software Engineer'
                 ]}
                 typingSpeed={85}
                 pauseDuration={2300}
@@ -42,7 +42,7 @@ export default function Home() {
                 About Me
               </h2>
               <p className="leading-relaxed mb-4" style={{ color: '#4ADE80' }}>
-                I'm a Computer Science student at Arizona State University's Barrett, the Honors College, graduating May 2026.
+                I'm a Computer Science student at Arizona State University, graduating May 2026.
                 Previously an AI/ML Engineer Intern at USAA, I'm passionate about machine learning, data analysis, and building
                 scalable software solutions. I have experience with NLP, distributed systems, and full-stack development.
               </p>

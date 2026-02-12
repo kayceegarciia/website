@@ -44,11 +44,11 @@ export default function Interests() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {interests.map((interest, index) => (
-              <div key={index} className="relative h-72 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-green-700 to-green-900 hover:shadow-xl hover:scale-105 transition p-6">
+              <div key={index} className="relative h-72 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-black/60 to-black border-2 hover:shadow-xl hover:scale-105 transition p-6" style={{borderColor: '#07450C'}}>
                 <div className="relative text-center">
                   <div className="text-5xl mb-4">{interest.icon}</div>
-                  <h3 className="text-xl font-bold text-white mb-2">{interest.title}</h3>
-                  <p className="text-green-100 text-sm">{interest.description}</p>
+                  <h3 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>{interest.title}</h3>
+                  <p className="text-green-100 text-sm" style={{color: '#4ADE80'}}>{interest.description}</p>
                 </div>
               </div>
             ))}
@@ -57,18 +57,14 @@ export default function Interests() {
           <div className="mt-16 bg-gradient-to-br from-green-700 to-teal-900 rounded-2xl shadow-lg p-8 border-2 border-green-600">
             <h2 className="text-2xl font-bold text-white mb-4">What Drives Me</h2>
             <p className="text-green-100 leading-relaxed">
-              I'm passionate about leveraging technology to solve real-world problems. Whether it's developing 
-              AI models for risk management, analyzing data to improve user engagement, or optimizing system performance, 
-              I'm driven by the opportunity to make meaningful impact. As a Barrett Honors student and SHPE leader, 
-              I believe in continuous learning and lifting others up in the tech community.
+              Coming from a Hispanic background, technology was never a field anyone in my family had ever been part of or even thought about.
+              Going into college, I wanted to choose something that both challenged me and connected to my fascination with technology.
+              This fueled my passion to not only succeed in this industry but also to pave the way for others like me. 
+              I am driven by the desire to create impactful software solutions, contribute to the tech community, and show others who were once in my shoes
+              that they too can choose the path of tech.
             </p>
           </div>
 
-          <div className="mt-12">
-            <Link href="/" className="text-green-400 hover:text-green-300 font-semibold">
-              ← Back to Home
-            </Link>
-          </div>
         </div>
     </main>
   );
