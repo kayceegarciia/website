@@ -11,8 +11,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "My Portfolio | Software Engineer",
+  title: "kayceegarcia.com",
   description: "A portfolio showcasing my projects, skills, and experience as a software engineer.",
+  icons: {
+    icon: '/image.png',
+  },
 };
 
 export default function RootLayout({
