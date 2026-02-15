@@ -87,9 +87,12 @@ export default function SongRequest() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ trackUri }),
       });
-      const data = (await response.json()) as { message?: string; error?: string; status?: string };
+      const payloadText = await response.text();
+      const data = payloadText
+        ? (JSON.parse(payloadText) as { message?: string; error?: string; status?: string })
+        : {};
       if (!response.ok) {
-        throw new Error(data.error ?? 'Request failed.');
+        throw new Error(data.error ?? payloadText ?? 'Request failed.');
       }
       setStatus({ type: 'success', message: data.message ?? 'Request sent!' });
       if (data.status === 'queued') {
