@@ -124,6 +124,11 @@ async function spotifyFetch<T>(path: string, init?: RequestInit): Promise<T> {
     );
   }
 
+  const contentType = response.headers.get('content-type') ?? '';
+  if (!contentType.includes('application/json')) {
+    return {} as T;
+  }
+
   return (await response.json()) as T;
 }
 
