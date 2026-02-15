@@ -9,6 +9,41 @@ import {
   searchTracks,
 } from '@/lib/spotify';
 
+function explainSpotifyError(message: string): { status: number; error: string } | null {
+  const match = message.match(/Spotify API error: (\d{3})\s*(.*)/i);
+  if (!match) {
+    return null;
+  }
+
+  const status = Number(match[1]);
+  const details = match[2]?.trim();
+
+  if (status === 403) {
+    return {
+      status,
+      error:
+        'Spotify API error: 403 Forbidden. The refresh token user cannot edit that playlist or is missing the correct scope. ' +
+        'Confirm the token was minted for the playlist owner (or a collaborator) and includes playlist-modify-public/private.' +
+        (details ? ` Details: ${details}` : ''),
+    };
+  }
+
+  if (status === 404) {
+    return {
+      status,
+      error:
+        'Spotify API error: 404 Not Found. The playlist ID is wrong or the token user cannot access it. ' +
+        'Verify SPOTIFY_PLAYLIST_ID and that the token user has access.' +
+        (details ? ` Details: ${details}` : ''),
+    };
+  }
+
+  return {
+    status,
+    error: `Spotify API error: ${status}.${details ? ` Details: ${details}` : ''}`,
+  };
+}
+
 function getPlaylistId(): string {
   const playlistId = process.env.SPOTIFY_PLAYLIST_ID;
   if (!playlistId) {
@@ -45,6 +80,10 @@ export async function GET(request: Request) {
     return NextResponse.json({ results });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
+    const explained = explainSpotifyError(message);
+    if (explained) {
+      return NextResponse.json({ error: explained.error }, { status: explained.status });
+    }
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
