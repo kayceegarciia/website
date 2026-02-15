@@ -17,6 +17,22 @@ type SpotifySearchResponse = {
   };
 };
 
+type SpotifyUserProfile = {
+  id: string;
+  display_name?: string | null;
+};
+
+type SpotifyPlaylistSummary = {
+  id: string;
+  name: string;
+  public: boolean | null;
+  collaborative: boolean;
+  owner: {
+    id: string;
+    display_name?: string | null;
+  };
+};
+
 const SPOTIFY_TOKEN_URL = 'https://accounts.spotify.com/api/token';
 const SPOTIFY_API_BASE = 'https://api.spotify.com/v1';
 
@@ -32,6 +48,7 @@ export type SpotifyAccessToken = {
   access_token: string;
   token_type: string;
   expires_in: number;
+  scope?: string;
 };
 
 export async function getAccessToken(): Promise<SpotifyAccessToken> {
@@ -62,6 +79,11 @@ export async function getAccessToken(): Promise<SpotifyAccessToken> {
   return (await response.json()) as SpotifyAccessToken;
 }
 
+export async function getAccessTokenScope(): Promise<string | null> {
+  const token = await getAccessToken();
+  return token.scope ?? null;
+}
+
 async function spotifyFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const { access_token } = await getAccessToken();
   const response = await fetch(`${SPOTIFY_API_BASE}${path}`, {
@@ -77,8 +99,29 @@ async function spotifyFetch<T>(path: string, init?: RequestInit): Promise<T> {
   }
 
   if (!response.ok) {
-    const details = await response.text();
-    throw new Error(`Spotify API error: ${response.status} ${details}`);
+    const method = init?.method ?? 'GET';
+    const contentType = response.headers.get('content-type') ?? '';
+    const detailsText = await response.text();
+    let details = detailsText.trim();
+
+    if (detailsText && contentType.includes('application/json')) {
+      try {
+        const parsed = JSON.parse(detailsText) as {
+          error?: { message?: string; reason?: string };
+          message?: string;
+          reason?: string;
+        };
+        const message = parsed.error?.message ?? parsed.message;
+        const reason = parsed.error?.reason ?? parsed.reason;
+        details = message ? `message=${message}${reason ? ` reason=${reason}` : ''}` : details;
+      } catch {
+        // Keep original text if it is not valid JSON.
+      }
+    }
+
+    throw new Error(
+      `Spotify API error: ${response.status} method=${method} path=${path}${details ? ` details=${details}` : ''}`
+    );
   }
 
   return (await response.json()) as T;
@@ -98,7 +141,7 @@ export async function addToQueue(trackUri: string): Promise<void> {
 
 export async function addToPlaylist(trackUri: string, playlistId: string): Promise<void> {
   const body = JSON.stringify({ uris: [trackUri] });
-  await spotifyFetch<void>(`/playlists/${playlistId}/tracks`, {
+  await spotifyFetch<void>(`/playlists/${playlistId}/items`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -115,6 +158,14 @@ export async function searchTracks(query: string, limit = 8): Promise<SpotifyTra
   });
   const data = await spotifyFetch<SpotifySearchResponse>(`/search?${params.toString()}`);
   return data.tracks?.items ?? [];
+}
+
+export async function getCurrentUserProfile(): Promise<SpotifyUserProfile> {
+  return spotifyFetch<SpotifyUserProfile>('/me');
+}
+
+export async function getPlaylistSummary(playlistId: string): Promise<SpotifyPlaylistSummary> {
+  return spotifyFetch<SpotifyPlaylistSummary>(`/playlists/${playlistId}`);
 }
 
 export function normalizeTrackUri(input: string): string | null {

@@ -17,23 +17,35 @@ function explainSpotifyError(message: string): { status: number; error: string }
 
   const status = Number(match[1]);
   const details = match[2]?.trim();
+  const pathMatch = details?.match(/path=([^\s]+)/i);
+  const path = pathMatch?.[1];
 
   if (status === 403) {
+    const pathHint = path?.startsWith('/me/player/queue')
+      ? ' This endpoint requires a Spotify Premium account and an active device.'
+      : path?.startsWith('/playlists/')
+      ? ' The token user must own the playlist or be a collaborator.'
+      : '';
     return {
       status,
       error:
         'Spotify API error: 403 Forbidden. The refresh token user cannot edit that playlist or is missing the correct scope. ' +
         'Confirm the token was minted for the playlist owner (or a collaborator) and includes playlist-modify-public/private.' +
+        pathHint +
         (details ? ` Details: ${details}` : ''),
     };
   }
 
   if (status === 404) {
+    const pathHint = path?.startsWith('/me/player/queue')
+      ? ' This usually means no active playback device is available.'
+      : '';
     return {
       status,
       error:
         'Spotify API error: 404 Not Found. The playlist ID is wrong or the token user cannot access it. ' +
         'Verify SPOTIFY_PLAYLIST_ID and that the token user has access.' +
+        pathHint +
         (details ? ` Details: ${details}` : ''),
     };
   }
@@ -122,6 +134,10 @@ export async function POST(request: Request) {
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown error';
+    const explained = explainSpotifyError(message);
+    if (explained) {
+      return NextResponse.json({ error: explained.error }, { status: explained.status });
+    }
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
