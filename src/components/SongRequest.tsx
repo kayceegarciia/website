@@ -108,12 +108,15 @@ export default function SongRequest() {
 
   return (
     <section
-      className="mt-10 bg-black/50 backdrop-blur shadow-lg p-6 border-2"
+      className="mt-10 border-2 bg-gradient-to-br from-black/80 via-black/50 to-black/80 backdrop-blur-lg shadow-[0_0_40px_rgba(14,165,81,0.15)]"
       style={{ borderColor: '#07450C' }}
     >
-      <div className="flex flex-col gap-4">
+      <div className="border-b border-[#0EA551]/40 px-6 py-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
+            <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#4ADE80' }}>
+              Spotify
+            </p>
             <h2 className="text-2xl font-semibold" style={{ color: '#0EA551' }}>
               Song Request
             </h2>
@@ -134,6 +137,9 @@ export default function SongRequest() {
             </span>
           </div>
         </div>
+      </div>
+
+      <div className="flex flex-col gap-4 px-6 py-5">
 
         <form className="flex flex-col gap-3 md:flex-row" onSubmit={handleSearch}>
           <input
@@ -141,12 +147,12 @@ export default function SongRequest() {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search by track, artist, or album"
-            className="w-full rounded-md bg-black/40 border border-[#0EA551] px-4 py-2 text-sm text-[#E7FFE5] placeholder:text-[#4ADE80] focus:outline-none focus:ring-2 focus:ring-[#0EA551]"
+            className="w-full bg-black/40 border border-[#0EA551] px-4 py-2 text-sm text-[#E7FFE5] placeholder:text-[#4ADE80] focus:outline-none focus:ring-2 focus:ring-[#0EA551]"
           />
           <button
             type="submit"
             disabled={isSearching}
-            className="rounded-md bg-[#0EA551] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#4ADE80] disabled:cursor-not-allowed disabled:opacity-70"
+            className="bg-[#0EA551] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#4ADE80] disabled:cursor-not-allowed disabled:opacity-70"
           >
             {isSearching ? 'Searching...' : 'Search'}
           </button>
@@ -175,10 +181,10 @@ export default function SongRequest() {
             results.map((track) => (
               <div
                 key={track.id}
-                className="flex flex-col gap-3 rounded-lg border border-[#0EA551]/40 bg-black/30 p-3 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-3 border border-[#0EA551]/40 bg-black/30 p-3 md:flex-row md:items-center md:justify-between"
               >
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 overflow-hidden rounded-md border border-[#0EA551]/40">
+                  <div className="h-12 w-12 overflow-hidden border border-[#0EA551]/40">
                     {track.imageUrl ? (
                       <img src={track.imageUrl} alt={track.name} className="h-full w-full object-cover" />
                     ) : (
@@ -196,7 +202,7 @@ export default function SongRequest() {
                   type="button"
                   onClick={() => handleRequest(track.uri)}
                   disabled={isRequesting === track.uri}
-                  className="rounded-md border border-[#0EA551] px-4 py-2 text-xs font-semibold text-[#0EA551] transition hover:bg-[#0EA551] hover:text-black disabled:cursor-not-allowed disabled:opacity-70"
+                  className="border border-[#0EA551] px-4 py-2 text-xs font-semibold text-[#0EA551] transition hover:bg-[#0EA551] hover:text-black disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {isRequesting === track.uri ? 'Adding...' : 'Request'}
                 </button>
