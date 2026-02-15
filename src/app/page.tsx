@@ -1,6 +1,7 @@
 'use client';
 import dynamic from 'next/dynamic';
 import TextType from '@/components/TextType';
+import SongRequest from '@/components/SongRequest';
 
 const Lanyard = dynamic(() => import('@/components/Lanyard'), {
   ssr: false,
@@ -51,6 +52,7 @@ export default function Home() {
                 experience, and what drives me forward in software engineering.
               </p>
             </div>
+            <SongRequest />
           </section>
         </div>
 
