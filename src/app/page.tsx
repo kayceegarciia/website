@@ -36,21 +36,24 @@ export default function Home() {
               />
             </div>
             <div
-              className="bg-black/50 backdrop-blur shadow-lg p-8 border-2"
-              style={{ borderColor: '#07450C' }}
+              className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-shadow duration-300"
             >
-              <h2 className="text-2xl font-semibold mb-4" style={{ color: '#0EA551' }}>
-                About Me
-              </h2>
-              <p className="leading-relaxed mb-4" style={{ color: '#4ADE80' }}>
-                I'm a Computer Science student at Arizona State University, graduating May 2026.
-                Previously an AI/ML Engineer Intern at USAA, I'm passionate about machine learning, data analysis, and building
-                scalable software solutions. I have experience with NLP, distributed systems, and full-stack development.
-              </p>
-              <p className="leading-relaxed" style={{ color: '#4ADE80' }}>
-                Explore my work through the navigation menu to learn more about my projects, technical skills, professional
-                experience, and what drives me forward in software engineering.
-              </p>
+              <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
+                <h2 className="text-xl font-bold" style={{ color: '#0EA551' }}>
+                  About Me
+                </h2>
+              </div>
+              <div className="p-6">
+                <p className="leading-relaxed mb-4 text-sm" style={{ color: '#4ADE80' }}>
+                  I'm a Computer Science student at Arizona State University, graduating May 2026.
+                  Previously an AI/ML Engineer Intern at USAA, I'm passionate about machine learning, data analysis, and building
+                  scalable software solutions. I have experience with NLP, distributed systems, and full-stack development.
+                </p>
+                <p className="leading-relaxed text-sm" style={{ color: '#4ADE80' }}>
+                  Explore my work through the navigation menu to learn more about my projects, technical skills, professional
+                  experience, and what drives me forward in software engineering.
+                </p>
+              </div>
             </div>
             <SongRequest />
           </section>

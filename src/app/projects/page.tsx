@@ -35,13 +35,15 @@ export default function Projects() {
             <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projects.map((project, index) => (
-                <div key={index} className="relative h-64 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-black/60 to-black border-2 p-6" style={{borderColor: '#07450C'}}>
-                  <div className="relative text-center">
-                    <h3 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>{project.title}</h3>
+                <div key={index} className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
+                    <h3 className="text-lg font-bold" style={{color: '#0EA551'}}>{project.title}</h3>
+                  </div>
+                  <div className="p-6">
                     <p className="text-sm mb-4" style={{color: '#4ADE80'}}>{project.description}</p>
-                    <div className="flex flex-wrap gap-2 justify-center">
+                    <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, i) => (
-                        <span key={i} className="bg-white/30 text-white text-xs px-2 py-1 rounded-full">
+                        <span key={i} className="bg-[#0EA551]/20 text-[#0EA551] text-xs px-3 py-1 rounded-full border border-[#0EA551]/30">
                           {tech}
                         </span>
                       ))}
@@ -57,13 +59,15 @@ export default function Projects() {
             <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>Technical Skills</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {Object.entries(skills).map(([category, skillList]) => (
-                <div key={category} className="relative h-72 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-teal-800 to-green-900 p-6">
-                  <div className="relative text-center">
-                    <h3 className="text-xl font-bold text-white mb-4">{category}</h3>
+                <div key={category} className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
+                  <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
+                    <h3 className="text-lg font-bold" style={{color: '#0EA551'}}>{category}</h3>
+                  </div>
+                  <div className="p-6">
                     <ul className="space-y-2">
                       {skillList.map((skill, i) => (
-                        <li key={i} className="text-green-100 flex items-center justify-center">
-                          <span className="text-green-300 mr-2">✓</span> {skill}
+                        <li key={i} className="text-sm flex items-center" style={{color: '#4ADE80'}}>
+                          <span className="mr-2" style={{color: '#0EA551'}}>✓</span> {skill}
                         </li>
                       ))}
                     </ul>

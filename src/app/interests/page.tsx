@@ -44,25 +44,31 @@ export default function Interests() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {interests.map((interest, index) => (
-              <div key={index} className="relative h-72 flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-br from-black/60 to-black border-2 hover:shadow-xl hover:scale-105 transition p-6" style={{borderColor: '#07450C'}}>
-                <div className="relative text-center">
-                  <div className="text-5xl mb-4">{interest.icon}</div>
-                  <h3 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>{interest.title}</h3>
-                  <p className="text-green-100 text-sm" style={{color: '#4ADE80'}}>{interest.description}</p>
+              <div key={index} className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
+                <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
+                  <div className="text-4xl">{interest.icon}</div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-bold mb-2" style={{color: '#0EA551'}}>{interest.title}</h3>
+                  <p className="text-sm" style={{color: '#4ADE80'}}>{interest.description}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 bg-gradient-to-br from-green-700 to-teal-900 rounded-2xl shadow-lg p-8 border-2 border-green-600">
-            <h2 className="text-2xl font-bold text-white mb-4">What Drives Me</h2>
-            <p className="text-green-100 leading-relaxed">
-              Coming from a Hispanic background, technology was never a field anyone in my family had ever been part of or even thought about.
-              Going into college, I wanted to choose something that both challenged me and connected to my fascination with technology.
-              This fueled my passion to not only succeed in this industry but also to pave the way for others like me. 
-              I am driven by the desire to create impactful software solutions, contribute to the tech community, and show others who were once in my shoes
-              that they too can choose the path of tech.
-            </p>
+          <div className="mt-12 rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-shadow duration-300">
+            <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
+              <h2 className="text-xl font-bold" style={{color: '#0EA551'}}>What Drives Me</h2>
+            </div>
+            <div className="p-6">
+              <p className="text-sm leading-relaxed" style={{color: '#4ADE80'}}>
+                Coming from a Hispanic background, technology was never a field anyone in my family had ever been part of or even thought about.
+                Going into college, I wanted to choose something that both challenged me and connected to my fascination with technology.
+                This fueled my passion to not only succeed in this industry but also to pave the way for others like me. 
+                I am driven by the desire to create impactful software solutions, contribute to the tech community, and show others who were once in my shoes
+                that they too can choose the path of tech.
+              </p>
+            </div>
           </div>
 
         </div>

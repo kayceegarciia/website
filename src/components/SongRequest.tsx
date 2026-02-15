@@ -108,32 +108,31 @@ export default function SongRequest() {
 
   return (
     <section
-      className="mt-10 border-2 bg-gradient-to-br from-black/80 via-black/50 to-black/80 backdrop-blur-lg shadow-[0_0_40px_rgba(14,165,81,0.15)]"
-      style={{ borderColor: '#07450C' }}
+      className="mt-6 rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-shadow duration-300"
     >
-      <div className="border-b border-[#0EA551]/40 px-6 py-4">
+      <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em]" style={{ color: '#4ADE80' }}>
-              Spotify
-            </p>
-            <h2 className="text-2xl font-semibold" style={{ color: '#0EA551' }}>
-              Song Request
-            </h2>
-            <p className="text-sm" style={{ color: '#4ADE80' }}>
-              Suggest a track for my Spotify queue.
+            <div className="flex items-center gap-2 mb-1">
+              <span className="text-lg">🎵</span>
+              <h2 className="text-xl font-bold" style={{ color: '#0EA551' }}>
+                Put me on to Music!
+              </h2>
+            </div>
+            <p className="text-xs" style={{ color: '#4ADE80' }}>
+              Add a song for my Spotify queue, and if I'm offline, it'll add to a playlist for me to listen to later!
             </p>
           </div>
-          <div className="flex items-center gap-2 text-sm">
-            <span className="text-lg">
+          <div className="flex items-center gap-2 rounded-full bg-black/40 px-3 py-1.5 border border-[#0EA551]/30">
+            <span className="text-sm">
               {online === null ? '🟡' : online ? '🟢' : '🌙'}
             </span>
-            <span style={{ color: '#4ADE80' }}>
+            <span className="text-xs" style={{ color: '#4ADE80' }}>
               {online === null
-                ? 'Checking status...'
+                ? 'Checking...'
                 : online
-                ? "I'm coding right now! Request a song to my ears."
-                : "I'm away, but request a song and I'll hear it later."}
+                ? 'Online'
+                : 'Offline'}
             </span>
           </div>
         </div>
@@ -147,12 +146,12 @@ export default function SongRequest() {
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search by track, artist, or album"
-            className="w-full bg-black/40 border border-[#0EA551] px-4 py-2 text-sm text-[#E7FFE5] placeholder:text-[#4ADE80] focus:outline-none focus:ring-2 focus:ring-[#0EA551]"
+            className="w-full rounded-lg bg-black/40 border border-[#0EA551]/50 px-4 py-2.5 text-sm text-[#E7FFE5] placeholder:text-[#4ADE80]/60 focus:outline-none focus:border-[#0EA551] focus:ring-1 focus:ring-[#0EA551] transition-all"
           />
           <button
             type="submit"
             disabled={isSearching}
-            className="bg-[#0EA551] px-5 py-2 text-sm font-semibold text-black transition hover:bg-[#4ADE80] disabled:cursor-not-allowed disabled:opacity-70"
+            className="rounded-lg bg-[#0EA551] px-6 py-2.5 text-sm font-semibold text-black transition hover:bg-[#4ADE80] hover:shadow-lg hover:shadow-[#0EA551]/50 disabled:cursor-not-allowed disabled:opacity-70 whitespace-nowrap"
           >
             {isSearching ? 'Searching...' : 'Search'}
           </button>
@@ -160,49 +159,49 @@ export default function SongRequest() {
 
         {status.type !== 'idle' && (
           <div
-            className={`rounded-md border px-4 py-2 text-sm ${
+            className={`rounded-lg border px-4 py-2.5 text-xs font-medium ${
               status.type === 'success'
-                ? 'border-emerald-400/60 text-emerald-200'
+                ? 'border-emerald-400/60 bg-emerald-400/10 text-emerald-200'
                 : status.type === 'error'
-                ? 'border-red-400/60 text-red-200'
-                : 'border-amber-400/60 text-amber-200'
+                ? 'border-red-400/60 bg-red-400/10 text-red-200'
+                : 'border-amber-400/60 bg-amber-400/10 text-amber-200'
             }`}
           >
             {status.message}
           </div>
         )}
 
-        <div className="grid gap-3">
+        <div className="grid gap-2">
           {results.length === 0 && !isSearching ? (
-            <p className="text-sm" style={{ color: '#4ADE80' }}>
+            <p className="text-xs text-center py-4" style={{ color: '#4ADE80' }}>
               Search for a track to request it.
             </p>
           ) : (
             results.map((track) => (
               <div
                 key={track.id}
-                className="flex flex-col gap-3 border border-[#0EA551]/40 bg-black/30 p-3 md:flex-row md:items-center md:justify-between"
+                className="flex flex-col gap-3 rounded-lg border border-[#0EA551]/30 bg-black/30 p-3 md:flex-row md:items-center md:justify-between hover:border-[#0EA551]/60 hover:bg-black/40 transition-all"
               >
                 <div className="flex items-center gap-3">
-                  <div className="h-12 w-12 overflow-hidden border border-[#0EA551]/40">
+                  <div className="h-12 w-12 rounded-md overflow-hidden border border-[#0EA551]/40">
                     {track.imageUrl ? (
                       <img src={track.imageUrl} alt={track.name} className="h-full w-full object-cover" />
                     ) : (
                       <div className="flex h-full w-full items-center justify-center text-xs text-[#4ADE80]">
-                        No art
+                        🎵
                       </div>
                     )}
                   </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[#E7FFE5]">{track.name}</p>
-                    <p className="text-xs text-[#4ADE80]">{track.artists}</p>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold text-[#E7FFE5] truncate">{track.name}</p>
+                    <p className="text-xs text-[#4ADE80] truncate">{track.artists}</p>
                   </div>
                 </div>
                 <button
                   type="button"
                   onClick={() => handleRequest(track.uri)}
                   disabled={isRequesting === track.uri}
-                  className="border border-[#0EA551] px-4 py-2 text-xs font-semibold text-[#0EA551] transition hover:bg-[#0EA551] hover:text-black disabled:cursor-not-allowed disabled:opacity-70"
+                  className="rounded-lg border border-[#0EA551] px-4 py-2 text-xs font-semibold text-[#0EA551] transition hover:bg-[#0EA551] hover:text-black hover:shadow-lg hover:shadow-[#0EA551]/30 disabled:cursor-not-allowed disabled:opacity-70 whitespace-nowrap"
                 >
                   {isRequesting === track.uri ? 'Adding...' : 'Request'}
                 </button>
