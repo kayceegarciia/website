@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Outfit } from "next/font/google";
 import "./globals.css";
 import DockNavigation from "@/components/DockNavigation";
 import ClickSpark from "@/components/ClickSpark";
-import DarkVeil from "@/components/DarkVeil";
+import LineWaves from "@/components/LineWaves";
 
-const inter = Inter({
-  variable: "--font-inter",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+});
+
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
@@ -26,17 +32,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased flex flex-col min-h-screen m-0 p-0`}
-        style={{ fontFamily: "var(--font-inter), sans-serif" }}
+        className={`${playfair.className} ${outfit.className} antialiased flex flex-col min-h-screen m-0 p-0`}
       >
         <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
-          <DarkVeil
-            hueShift={0}
-            noiseIntensity={0}
-            scanlineIntensity={0}
-            speed={1.2}
-            scanlineFrequency={0}
-            warpAmount={0}
+          <LineWaves
+            speed={0.3}
+            innerLineCount={40}
+            outerLineCount={36}
+            warpIntensity={0.8}
+            rotation={-45}
+            edgeFadeWidth={0}
+            colorCycleSpeed={1}
+            brightness={0.2}
+            color1="#43963f"
+            color2="#f2577e"
+            color3="#35822d"
+            enableMouseInteraction
+            mouseInfluence={0.9}
           />
         </div>
         <div style={{ position: 'relative', zIndex: 1, minHeight: '100vh', width: '100%' }}>

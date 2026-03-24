@@ -1,18 +1,19 @@
 import Link from 'next/link';
+import { Mail, Phone, Briefcase, Download } from 'lucide-react';
 
 export default function Contact() {
   return (
     <main className="min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold text-green-400 mb-4">Contact Me</h1>
-          <p className="text-lg text-green-300 mb-12">
-            Feel free to reach out using the contact information below.
+        <div className="max-w-4xl mx-auto px-6 py-24">
+          <h1 className="text-5xl font-bold text-green-400 mb-6">Get In Touch</h1>
+          <p className="text-lg text-green-300 mb-16">
+            I'd love to hear from you. Reach out through any of these channels.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
               <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
-                <div className="text-3xl">✉️</div>
+                <Mail size={32} style={{color: '#0EA551'}} />
               </div>
               <div className="p-6 text-center">
                 <h2 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>Email</h2>
@@ -29,7 +30,7 @@ export default function Contact() {
 
             <div className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
               <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
-                <div className="text-3xl">📱</div>
+                <Phone size={32} style={{color: '#0EA551'}} />
               </div>
               <div className="p-6 text-center">
                 <h2 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>Phone</h2>
@@ -46,7 +47,7 @@ export default function Contact() {
 
             <div className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
               <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
-                <div className="text-3xl">💼</div>
+                <Briefcase size={32} style={{color: '#0EA551'}} />
               </div>
               <div className="p-6 text-center">
                 <h2 className="text-xl font-bold mb-2" style={{color: '#0EA551'}}>LinkedIn</h2>
@@ -63,7 +64,7 @@ export default function Contact() {
           </div>
 
           {/* Resume Section */}
-          <section className="mb-12 mt-12">
+          <section className="mb-12 mt-20">
             <div className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-shadow duration-300">
               <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
                 <h2 className="text-xl font-bold" style={{color: '#0EA551'}}>My Resume</h2>
@@ -75,10 +76,10 @@ export default function Contact() {
                 <a
                   href="/resume/Kaycee_Garcia_Resume.pdf"
                   download
-                  className="inline-block font-bold py-3 px-6 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0EA551]/50"
+                  className="inline-flex items-center gap-2 font-bold py-3 px-6 rounded-lg transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#0EA551]/50"
                   style={{backgroundColor: '#0EA551', color: '#000'}}
                 >
-                  📥 Download Resume (PDF)
+                  <Download size={18} /> Download Resume (PDF)
                 </a>
               </div>
             </div>

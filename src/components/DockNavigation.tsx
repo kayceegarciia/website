@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter, usePathname } from 'next/navigation';
-import { MdHome, MdMailOutline, MdCode, MdInterests } from 'react-icons/md';
+import { Home, Mail, Code2, Sparkles } from 'lucide-react';
 import Dock from './Dock';
 
 export default function DockNavigation() {
@@ -10,25 +10,25 @@ export default function DockNavigation() {
 
   const items = [
     { 
-      icon: <MdHome size={24} />, 
+      icon: <Home size={24} />, 
       label: 'Home', 
       onClick: () => router.push('/'),
       active: pathname === '/'
     },
     { 
-      icon: <MdMailOutline size={24} />, 
+      icon: <Mail size={24} />, 
       label: 'Contact', 
       onClick: () => router.push('/contact'),
       active: pathname === '/contact'
     },
     { 
-      icon: <MdCode size={24} />, 
+      icon: <Code2 size={24} />, 
       label: 'Projects & Skills', 
       onClick: () => router.push('/projects'),
       active: pathname === '/projects'
     },
     { 
-      icon: <MdInterests size={24} />, 
+      icon: <Sparkles size={24} />, 
       label: 'Interests', 
       onClick: () => router.push('/interests'),
       active: pathname === '/interests'

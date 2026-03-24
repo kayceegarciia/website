@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Check } from 'lucide-react';
 
 export default function Projects() {
   const projects = [
@@ -27,13 +28,13 @@ export default function Projects() {
 
   return (
     <main className="min-h-screen">
-        <div className="max-w-4xl mx-auto px-4 py-20">
-          <h1 className="text-4xl font-bold mb-12" style={{color: '#0EA551'}}>Projects & Skills</h1>
+        <div className="max-w-6xl mx-auto px-6 py-24">
+          <h1 className="text-5xl font-bold mb-16" style={{color: '#0EA551'}}>Projects & Technical Skills</h1>
 
           {/* Projects Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>Projects</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <section className="mb-24">
+            <h2 className="text-4xl font-bold mb-12" style={{color: '#0EA551'}}>Featured Projects</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {projects.map((project, index) => (
                 <div key={index} className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
                   <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
@@ -55,9 +56,9 @@ export default function Projects() {
           </section>
 
           {/* Skills Section */}
-          <section className="mb-16">
-            <h2 className="text-3xl font-bold mb-8" style={{color: '#0EA551'}}>Technical Skills</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <section className="mb-24">
+            <h2 className="text-4xl font-bold mb-12" style={{color: '#0EA551'}}>Technical Skills</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {Object.entries(skills).map(([category, skillList]) => (
                 <div key={category} className="rounded-2xl bg-black/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.4)] border border-[#0EA551]/30 overflow-hidden hover:shadow-[0_8px_48px_rgba(14,165,81,0.2)] transition-all duration-300 hover:-translate-y-1">
                   <div className="bg-gradient-to-r from-[#0EA551]/10 to-transparent px-6 py-4 border-b border-[#0EA551]/20">
@@ -67,7 +68,7 @@ export default function Projects() {
                     <ul className="space-y-2">
                       {skillList.map((skill, i) => (
                         <li key={i} className="text-sm flex items-center" style={{color: '#4ADE80'}}>
-                          <span className="mr-2" style={{color: '#0EA551'}}>✓</span> {skill}
+                          <Check size={16} style={{color: '#0EA551', marginRight: '0.5rem', flexShrink: 0}} /> {skill}
                         </li>
                       ))}
                     </ul>
