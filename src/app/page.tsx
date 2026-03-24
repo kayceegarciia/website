@@ -45,13 +45,12 @@ export default function Home() {
               </div>
               <div className="p-6">
                 <p className="leading-relaxed mb-4 text-sm" style={{ color: '#4ADE80' }}>
-                  I'm a Computer Science student at Arizona State University, graduating May 2026.
-                  Previously an AI/ML Engineer Intern at USAA, I'm passionate about machine learning, data analysis, and building
-                  scalable software solutions. I have experience with NLP, distributed systems, and full-stack development.
-                </p>
-                <p className="leading-relaxed text-sm" style={{ color: '#4ADE80' }}>
-                  Explore my work through the navigation menu to learn more about my projects, technical skills, professional
-                  experience, and what drives me forward in software engineering.
+                  Computer Science major at Arizona State University, graduating May 2026.
+                  <br />
+                  <br />
+                  Spend most of my time listening to music, playing Fallout: New Vegas, or figuring out why backend isn't connecting.
+
+               
                 </p>
               </div>
             </div>
