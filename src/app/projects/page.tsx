@@ -10,7 +10,7 @@ export default function Projects() {
     {
       title: 'Similar Operational Loss Event Predictor',
       description: 'NLP model that identifies relationships between operational losses using embeddings and cosine similarity (threshold 0.64) for enterprise-wide risk detection.',
-      technologies: ['NLP', 'PyTorch', 'Python', 'Embeddings'],
+      technologies: ['Snowflake', 'Python', 'PyTorch', 'SciKit', 'NLP', 'Domino'],
     },
     {
       title: 'Personal Portfolio Website',
